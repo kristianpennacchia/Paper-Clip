@@ -74,6 +74,8 @@
                                            }
                                        }
                                    }
+                                   viewController.tableView.hidden = NO;
+                                   
                                    // Asynchronously refresh the tableView (async so the app doesnt freeze)
                                    dispatch_async(dispatch_get_main_queue(), ^{
                                        [viewController.tableView reloadData];
@@ -83,9 +85,19 @@
                                    // If not on WiFi, only load article text on demand (i.e. when use clicks on article).
                                }
                                else {
-                                   // Do nothing?
                                    // If there are no articles, let the user know by changing the
                                    // text on the bgLabel and showing it (hide the tableView)
+                                   
+                                   // No articles were retrieved. If there are no articles already loaded
+                                   // (no items in delegate.articles array) then change the bgLabel to
+                                   // "No Articles" and hide the tableView.
+                                   // The tableView needs to be unhidden again when articles are retrieved and loaded.
+                                   if ([delegate.articles count] == 0) {
+                                       viewController.bgLabel.text = @"No Articles";
+                                       viewController.tableView.hidden = YES;
+                                       
+                                       // Problem: No pull-to-refresh when tableView is hidden
+                                   }
                                }
                                [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
                                [viewController.refreshControl endRefreshing];
