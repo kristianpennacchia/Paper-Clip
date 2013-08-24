@@ -43,6 +43,8 @@
     // Start the event notification
     [reach startNotifier];
     
+    bgDate = [NSDate date];
+    
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -51,6 +53,12 @@
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
     // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
+    
+    // If the app has been in the background for over 2 hours we will
+    // automatically refresh the article list.
+    
+    // Get the current date and time
+    bgDate = [NSDate date];
 }
 
 - (void)applicationDidEnterBackground:(UIApplication *)application
@@ -67,6 +75,18 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
     // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+    
+    // Compare the current date and time with the previous date and time that
+    // was recorded when we resigned being active. If the time difference
+    // is long enough, refresh the article list (RSS feed through API).
+    int minutesToRefresh = 120;
+    
+    // Convert the interval from seconds to minutes using floor() for ease-of-use
+    int timeDifference = floor([[NSDate date] timeIntervalSinceDate:bgDate] / 60);
+
+    if (timeDifference >= minutesToRefresh) {
+        [self.viewController refresh];
+    }
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application

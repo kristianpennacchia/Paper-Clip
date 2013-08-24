@@ -12,6 +12,9 @@
 @class KPTableViewController;
 
 @interface KPAppDelegate : UIResponder <UIApplicationDelegate>
+{
+    NSDate *bgDate;
+}
 
 @property (strong, nonatomic) UIWindow *window;
 @property (strong, nonatomic) KPTableViewController *viewController;
