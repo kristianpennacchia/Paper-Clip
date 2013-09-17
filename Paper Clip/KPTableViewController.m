@@ -18,6 +18,16 @@
 
 @implementation KPTableViewController
 
+NSString *keyLastLoaded;
+
+- (id)initWithKey:(NSString *)keyString
+{
+    if ((self = [super init])) {
+        key = keyString;
+    }
+    return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -38,20 +48,29 @@
     
     // Check for reachability
     if (delegate.isReachable) {
-        [repository fetchArticlesWithParent:self fromURL:@"http://www.theverge.com/rss/index.xml"];
+        // If it's a different RSS feed compared to what was last loaded,
+        // erase the array
+        if (![key isEqualToString:keyLastLoaded]) {
+            [delegate.articles removeAllObjects];
+        }
+        
+        NSString *rss = [delegate.rssFeeds valueForKey:key];
+        [repository fetchArticlesWithParent:self fromURL:rss];
+        keyLastLoaded = key;
     }
     else {
         // Not reachable
-        if ([delegate.articles count] == 0) {
+        if ([delegate.articles count] == 0 || ![key isEqualToString:keyLastLoaded]) {
             /* When viewing the articles list */
-            // If the articles array is empty: Hide the UITableView and show
+            // If the articles array is empty or we are trying to view a
+            // different rss feed: Hide the UITableView and show
             // an empty state
             self.bgLabel.text = @"No Internet Connection";
             self.tableView.hidden = YES;
         }
     }
-    
-    self.title = @"Paper Clip"; // This should be the name of the selected website
+    // Set the navigation bar title to be the website's name
+    self.title = key;
 }
 
 - (void)didReceiveMemoryWarning
@@ -67,7 +86,8 @@
     KPAppDelegate *delegate = (KPAppDelegate *)[[UIApplication sharedApplication] delegate];
     if (delegate.isReachable) {
         KPArticleRepository *repository = [[KPArticleRepository alloc] init];
-        [repository fetchArticlesWithParent:self fromURL:@"http://www.theverge.com/rss/index.xml"];
+        NSString *rss = [delegate.rssFeeds valueForKey:key];
+        [repository fetchArticlesWithParent:self fromURL:rss];
     }
     else {
         [self.refreshControl endRefreshing];

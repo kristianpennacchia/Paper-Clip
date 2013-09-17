@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "Reachability.h"
 
+@class KPRSSViewController;
 @class KPTableViewController;
 
 @interface KPAppDelegate : UIResponder <UIApplicationDelegate>
@@ -17,9 +18,11 @@
 }
 
 @property (strong, nonatomic) UIWindow *window;
+@property (strong, nonatomic) KPRSSViewController *rssViewController;
 @property (strong, nonatomic) KPTableViewController *viewController;
 @property (strong, nonatomic) UINavigationController *navController;
 @property (strong, nonatomic) NSMutableArray *articles;
+@property (strong, nonatomic) NSMutableDictionary *rssFeeds;
 @property (nonatomic) BOOL isReachable;
 
 - (NSString *)stringFromStatus:(NetworkStatus)status;

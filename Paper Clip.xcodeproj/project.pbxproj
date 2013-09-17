@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		172EDC6817E6B22500E525DA /* KPRSSViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 172EDC6617E6B22500E525DA /* KPRSSViewController.m */; };
+		172EDC6917E6B22500E525DA /* KPRSSViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 172EDC6717E6B22500E525DA /* KPRSSViewController.xib */; };
 		1741A22E17B8D06D0072C84C /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1741A22D17B8D06D0072C84C /* SystemConfiguration.framework */; };
 		1741A23B17B8D8570072C84C /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 1741A23A17B8D8570072C84C /* Reachability.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		174923FD17B7726E0019E0A2 /* NSString+KPStringHTMLHandling.m in Sources */ = {isa = PBXBuildFile; fileRef = 174923FC17B7726E0019E0A2 /* NSString+KPStringHTMLHandling.m */; };
@@ -28,6 +30,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		172EDC6517E6B22500E525DA /* KPRSSViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPRSSViewController.h; sourceTree = "<group>"; };
+		172EDC6617E6B22500E525DA /* KPRSSViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPRSSViewController.m; sourceTree = "<group>"; };
+		172EDC6717E6B22500E525DA /* KPRSSViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KPRSSViewController.xib; sourceTree = "<group>"; };
 		1741A22D17B8D06D0072C84C /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		1741A23917B8D8570072C84C /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		1741A23A17B8D8570072C84C /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
@@ -120,6 +125,9 @@
 				174923FC17B7726E0019E0A2 /* NSString+KPStringHTMLHandling.m */,
 				1741A23917B8D8570072C84C /* Reachability.h */,
 				1741A23A17B8D8570072C84C /* Reachability.m */,
+				172EDC6517E6B22500E525DA /* KPRSSViewController.h */,
+				172EDC6617E6B22500E525DA /* KPRSSViewController.m */,
+				172EDC6717E6B22500E525DA /* KPRSSViewController.xib */,
 			);
 			path = "Paper Clip";
 			sourceTree = "<group>";
@@ -205,6 +213,7 @@
 				17538C5B17B48F8F00A4CEBD /* Default-568h@2x.png in Resources */,
 				17538C6E17B4994F00A4CEBD /* KPArticleController.xib in Resources */,
 				17B5D3C117B7D25A004D55E6 /* KPTableViewController.xib in Resources */,
+				172EDC6917E6B22500E525DA /* KPRSSViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,6 +232,7 @@
 				174923FD17B7726E0019E0A2 /* NSString+KPStringHTMLHandling.m in Sources */,
 				17B5D3C017B7D25A004D55E6 /* KPTableViewController.m in Sources */,
 				1741A23B17B8D8570072C84C /* Reachability.m in Sources */,
+				172EDC6817E6B22500E525DA /* KPRSSViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

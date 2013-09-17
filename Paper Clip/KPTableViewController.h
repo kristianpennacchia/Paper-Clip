@@ -10,11 +10,15 @@
 
 @interface KPTableViewController : UITableViewController <UITableViewDataSource,
                                                         UITableViewDelegate>
+{
+    NSString *key;
+}
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) IBOutlet UIView *bgView;
 @property (strong, nonatomic) IBOutlet UILabel *bgLabel;
 
+- (id)initWithKey:(NSObject *)keyString;
 - (void)refresh;
 
 @end

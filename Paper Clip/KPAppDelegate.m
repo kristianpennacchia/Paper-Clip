@@ -10,6 +10,7 @@
 #import "KPTableViewController.h"
 #import "KPArticle.h"
 #import "KPArticleRepository.h"
+#import "KPRSSViewController.h"
 
 @implementation KPAppDelegate
 
@@ -19,12 +20,21 @@
     // Override point for customization after application launch.
 
     self.articles = [[NSMutableArray alloc] init];
+    self.rssFeeds = [[NSMutableDictionary alloc] init];
+    // TODO: Read the RSS feed list from plist file into an NSDictionary (rssFeeds)
     
-    self.viewController = [[KPTableViewController alloc] initWithNibName:@"KPTableViewController" bundle:nil];
-    self.navController = [[UINavigationController alloc] initWithRootViewController:self.viewController];
+    // TEMP: Add RSS feeds to NSDictionary manually for now
+    [self.rssFeeds setObject:@"http://www.theverge.com/rss/index.xml" forKey:@"The Verge"];
+    [self.rssFeeds setObject:@"http://www.polygon.com/rss/index.xml" forKey:@"Polygon"];
+    [self.rssFeeds setObject:@"http://9to5mac.com/feed/" forKey:@"9to5Mac"];
+    
+    self.rssViewController = [[KPRSSViewController alloc] initWithNibName:@"KPRSSViewController" bundle:nil];
+    //self.viewController = [[KPTableViewController alloc] initWithNibName:@"KPTableViewController" bundle:nil];
+    
+    // I think this sets which view is loaded by default. MIGHT need to set this to rssViewController
+    self.navController = [[UINavigationController alloc] initWithRootViewController:self.rssViewController];
     self.window.rootViewController = self.navController;
     
-    // NOTE: Should this and it's methods be in KPArticleRepository instead?
     // Register this class as an observer for the kReachabilityChangedNotification event
     [[NSNotificationCenter defaultCenter] addObserver:self
                                               selector:@selector(reachabilityChanged:)
