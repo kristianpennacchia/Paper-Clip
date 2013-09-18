@@ -19,19 +19,24 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
 
-    self.articles = [[NSMutableArray alloc] init];
-    self.rssFeeds = [[NSMutableDictionary alloc] init];
-    // TODO: Read the RSS feed list from plist file into an NSDictionary (rssFeeds)
+    // The feeds.plist file needs to be created if it does not already exist
+    if (![[NSFileManager defaultManager] fileExistsAtPath:[self feedsPlistPath]]) {
+        // it does not exist, create plist and give it the default RSS Feeds
+        NSMutableDictionary *defaultFeeds = [[NSMutableDictionary alloc] init];
+        [defaultFeeds setObject:@"http://www.theverge.com/rss/index.xml" forKey:@"The Verge"];
+        [defaultFeeds setObject:@"http://www.polygon.com/rss/index.xml" forKey:@"Polygon"];
+        [defaultFeeds setObject:@"http://9to5mac.com/feed/" forKey:@"9to5Mac"];
+        
+        [defaultFeeds writeToFile:[self feedsPlistPath] atomically:YES];
+    }
     
-    // TEMP: Add RSS feeds to NSDictionary manually for now
-    [self.rssFeeds setObject:@"http://www.theverge.com/rss/index.xml" forKey:@"The Verge"];
-    [self.rssFeeds setObject:@"http://www.polygon.com/rss/index.xml" forKey:@"Polygon"];
-    [self.rssFeeds setObject:@"http://9to5mac.com/feed/" forKey:@"9to5Mac"];
+    self.rssFeeds = [[NSMutableDictionary alloc] initWithContentsOfFile:[self feedsPlistPath]];
+    self.articles = [[NSMutableArray alloc] init];
     
     self.rssViewController = [[KPRSSViewController alloc] initWithNibName:@"KPRSSViewController" bundle:nil];
     //self.viewController = [[KPTableViewController alloc] initWithNibName:@"KPTableViewController" bundle:nil];
     
-    // I think this sets which view is loaded by default. MIGHT need to set this to rssViewController
+    // Sets the default view to be displayed when the app launches
     self.navController = [[UINavigationController alloc] initWithRootViewController:self.rssViewController];
     self.window.rootViewController = self.navController;
     
@@ -146,6 +151,18 @@
             }
         }
     }
+}
+
+- (NSString *)feedsPlistPath
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
+    NSString *plistPath = [[paths objectAtIndex:0] stringByAppendingPathComponent:@"feeds.plist"];
+    return plistPath;
+}
+
+- (BOOL)writeFeedsToPlist
+{
+    return [self.rssFeeds writeToFile:[self feedsPlistPath] atomically:YES];
 }
 
 @end

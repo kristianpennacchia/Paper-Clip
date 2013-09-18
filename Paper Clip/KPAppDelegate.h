@@ -27,5 +27,7 @@
 
 - (NSString *)stringFromStatus:(NetworkStatus)status;
 - (void)reachabilityChanged:(NSNotification *)notification;
+- (NSString *)feedsPlistPath;
+- (BOOL)writeFeedsToPlist;
 
 @end
