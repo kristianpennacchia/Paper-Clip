@@ -38,6 +38,7 @@
     
     // Sets the default view to be displayed when the app launches
     self.navController = [[UINavigationController alloc] initWithRootViewController:self.rssViewController];
+    [[self.navController navigationBar] setTranslucent:YES];
     self.window.rootViewController = self.navController;
     
     // Register this class as an observer for the kReachabilityChangedNotification event

@@ -48,10 +48,15 @@
                                                                         style:UIBarButtonItemStylePlain
                                                                        target:self
                                                                        action:@selector(toggleNightMode)];
+    UIBarButtonItem *galleryButton = [[UIBarButtonItem alloc] initWithTitle:@"Gallery"
+                                                                       style:UIBarButtonItemStylePlain
+                                                                      target:self
+                                                                     action:@selector(gallery:)];
     UIBarButtonItem *shareButton = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAction
                                                                                  target:self
                                                                                  action:@selector(share:)];
     NSArray *buttonsArray = [[NSArray alloc] initWithObjects:shareButton,
+                                                            galleryButton,
                                                             nightModeButton,
                                                             brightnessButton, nil];
     [self.navigationItem setRightBarButtonItems:buttonsArray];
@@ -74,7 +79,7 @@
     KPAppDelegate *delegate = (KPAppDelegate *)[[UIApplication sharedApplication] delegate];
     KPArticle *thisArticle = [delegate.articles objectAtIndex:index.row];
     
-    self.title = thisArticle.title;
+    //self.title = thisArticle.title;
     
     // Strip all of the HTML elements from the text
     thisArticle.completeText = [NSString stringByStrippingHTML:thisArticle.completeText];
@@ -170,6 +175,11 @@
                         [[UIActivityViewController alloc] initWithActivityItems:activityItems
                                                           applicationActivities:nil];
     [self presentViewController:activityController animated:YES completion:nil];
+}
+
+- (void)gallery:(id)sender
+{
+    
 }
 
 @end

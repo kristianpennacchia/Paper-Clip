@@ -12,4 +12,6 @@
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView;
 
+- (void)addFeed:(id)sender;
+
 @end

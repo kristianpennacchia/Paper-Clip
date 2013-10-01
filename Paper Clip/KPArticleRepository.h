@@ -18,5 +18,6 @@
 
 - (void)fetchArticlesWithParent:(UIViewController *)controller fromURL:(NSString *)url;
 - (void)fetchArticleContentWithParent:(UIViewController *)controller forArticle:(KPArticle *)article atIndex:(NSInteger)index;
+- (BOOL)validateRSS:(NSString *)feed;
 
 @end

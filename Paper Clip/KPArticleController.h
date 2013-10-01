@@ -24,5 +24,6 @@
 - (void)sliderAction:(id)sender;
 - (void)toggleNightMode;
 - (void)share:(id)sender;
+- (void)gallery:(id)sender;
 
 @end

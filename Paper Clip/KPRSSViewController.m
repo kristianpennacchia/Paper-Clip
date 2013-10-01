@@ -9,6 +9,7 @@
 #import "KPRSSViewController.h"
 #import "KPAppDelegate.h"
 #import "KPTableViewController.h"
+#import "KPAddRSSController.h"
 
 @interface KPRSSViewController ()
 
@@ -36,6 +37,17 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     self.title = @"Paper Clip";
+    self.navigationItem.leftBarButtonItem = self.editButtonItem;
+    UIBarButtonItem *addButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemAdd
+                                                                                   target:self
+                                                                                   action:@selector(addFeed:)];
+    self.navigationItem.rightBarButtonItem = addButtonItem;
+}
+
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:YES];
+    [self.tableView reloadData];
 }
 
 - (void)didReceiveMemoryWarning
@@ -87,19 +99,26 @@
 }
 */
 
-/*
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
+        // Remove it from the NSDictionary
+        KPAppDelegate *delegate = (KPAppDelegate *)[[UIApplication sharedApplication] delegate];
+        [delegate.rssFeeds removeObjectForKey:[tableView cellForRowAtIndexPath:indexPath].textLabel.text];
+        
         // Delete the row from the data source
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
+        
+        // Write the NSDictionary to feeds.plist (overwrite the file)
+        [delegate writeFeedsToPlist];
     }   
     else if (editingStyle == UITableViewCellEditingStyleInsert) {
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        
+        // Write the NSDictionary to feeds.plist (overwrite the file)
     }   
 }
-*/
 
 /*
 // Override to support rearranging the table view.
@@ -141,6 +160,15 @@
     KPTableViewController *tableViewController = [[KPTableViewController alloc] initWithKey:key];
     [delegate.navController pushViewController:tableViewController animated:YES];
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (void)addFeed:(id)sender
+{
+    KPAddRSSController *addRSS = [[KPAddRSSController alloc] init];
+    
+    KPAppDelegate *delegate = (KPAppDelegate *)[[UIApplication sharedApplication] delegate];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:addRSS];
+    [delegate.navController presentViewController:nav animated:YES completion:nil];
 }
 
 @end

@@ -152,4 +152,48 @@
     }
 }
 
+- (BOOL)validateRSS:(NSString *)feed
+{
+    BOOL isValid = YES; // __block makes it possible to alter this variable within a block
+    int validResponseCode = 200;   // 200 means it is valid (as mentioned via the API reference)
+    
+    NSString *fullURLString = [NSString stringWithFormat:@"%@%@%@",
+                               kLoadCommandAPI, feed, kArticlesToLoad];
+    NSURL *url = [NSURL URLWithString:fullURLString];
+    NSURLRequest *urlRequest = [[NSURLRequest alloc] initWithURL:url];
+    
+    
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+    
+    // Returned data is given by the synchronous method
+    // We need to use a synchronous method here because we need to know if
+    // the RSS Feed is valid before continuing
+    NSError *error = nil;
+    NSURLResponse *response = nil;
+    NSData *data = [NSURLConnection sendSynchronousRequest:urlRequest
+                          returningResponse:&response
+                                      error:&error];
+    
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+    
+    if (data && [data length] > 0) {
+        id JSONArticles = [NSJSONSerialization JSONObjectWithData:data
+                                                          options:0
+                                                            error:nil];
+        // Check the responseStatus to see if feed is valid.
+        int statusCode = [[JSONArticles objectForKey:@"responseStatus"] intValue];
+        
+        // if it is not, check the responseDetails for the reason
+        if (statusCode != validResponseCode) {
+            isValid = NO;
+        }
+    }
+    else {
+        // feed is not valid
+        isValid = NO;
+    }
+    
+    return isValid;
+}
+
 @end

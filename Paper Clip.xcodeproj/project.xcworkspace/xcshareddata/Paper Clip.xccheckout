@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>059F0160-2287-4A4A-99C6-AA865284E542</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Paper Clip</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>C22CA453-22DE-4FA1-B388-810BBE0A71BC</key>
+		<string>https://github.com/kristianpennacchia/Paper-Clip.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Paper Clip.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>C22CA453-22DE-4FA1-B388-810BBE0A71BC</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/kristianpennacchia/Paper-Clip.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>C22CA453-22DE-4FA1-B388-810BBE0A71BC</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>C22CA453-22DE-4FA1-B388-810BBE0A71BC</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Paper Clip</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -24,6 +24,8 @@
 		17538C6917B493CA00A4CEBD /* KPArticle.m in Sources */ = {isa = PBXBuildFile; fileRef = 17538C6817B493C900A4CEBD /* KPArticle.m */; };
 		17538C6D17B4994F00A4CEBD /* KPArticleController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17538C6B17B4994F00A4CEBD /* KPArticleController.m */; };
 		17538C6E17B4994F00A4CEBD /* KPArticleController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17538C6C17B4994F00A4CEBD /* KPArticleController.xib */; };
+		1755807917FAA2150056B273 /* KPAddRSSController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1755807717FAA2150056B273 /* KPAddRSSController.m */; };
+		1755807A17FAA2150056B273 /* KPAddRSSController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1755807817FAA2150056B273 /* KPAddRSSController.xib */; };
 		1783932417B4A7A300A9393D /* KPArticleRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 1783932317B4A7A300A9393D /* KPArticleRepository.m */; };
 		17B5D3C017B7D25A004D55E6 /* KPTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B5D3BE17B7D25A004D55E6 /* KPTableViewController.m */; };
 		17B5D3C117B7D25A004D55E6 /* KPTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17B5D3BF17B7D25A004D55E6 /* KPTableViewController.xib */; };
@@ -56,6 +58,9 @@
 		17538C6A17B4994F00A4CEBD /* KPArticleController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPArticleController.h; sourceTree = "<group>"; };
 		17538C6B17B4994F00A4CEBD /* KPArticleController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPArticleController.m; sourceTree = "<group>"; };
 		17538C6C17B4994F00A4CEBD /* KPArticleController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KPArticleController.xib; sourceTree = "<group>"; };
+		1755807617FAA2150056B273 /* KPAddRSSController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPAddRSSController.h; sourceTree = "<group>"; };
+		1755807717FAA2150056B273 /* KPAddRSSController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPAddRSSController.m; sourceTree = "<group>"; };
+		1755807817FAA2150056B273 /* KPAddRSSController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KPAddRSSController.xib; sourceTree = "<group>"; };
 		1783932017B4A6AE00A9393D /* KPArticleRepository.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KPArticleRepository.h; sourceTree = "<group>"; };
 		1783932317B4A7A300A9393D /* KPArticleRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPArticleRepository.m; sourceTree = "<group>"; };
 		17B5D3BD17B7D259004D55E6 /* KPTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPTableViewController.h; sourceTree = "<group>"; };
@@ -128,6 +133,9 @@
 				172EDC6517E6B22500E525DA /* KPRSSViewController.h */,
 				172EDC6617E6B22500E525DA /* KPRSSViewController.m */,
 				172EDC6717E6B22500E525DA /* KPRSSViewController.xib */,
+				1755807617FAA2150056B273 /* KPAddRSSController.h */,
+				1755807717FAA2150056B273 /* KPAddRSSController.m */,
+				1755807817FAA2150056B273 /* KPAddRSSController.xib */,
 			);
 			path = "Paper Clip";
 			sourceTree = "<group>";
@@ -214,6 +222,7 @@
 				17538C6E17B4994F00A4CEBD /* KPArticleController.xib in Resources */,
 				17B5D3C117B7D25A004D55E6 /* KPTableViewController.xib in Resources */,
 				172EDC6917E6B22500E525DA /* KPRSSViewController.xib in Resources */,
+				1755807A17FAA2150056B273 /* KPAddRSSController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -225,6 +234,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				17538C5117B48F8F00A4CEBD /* main.m in Sources */,
+				1755807917FAA2150056B273 /* KPAddRSSController.m in Sources */,
 				17538C5517B48F8F00A4CEBD /* KPAppDelegate.m in Sources */,
 				17538C6917B493CA00A4CEBD /* KPArticle.m in Sources */,
 				17538C6D17B4994F00A4CEBD /* KPArticleController.m in Sources */,
