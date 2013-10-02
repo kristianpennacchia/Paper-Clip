@@ -14,14 +14,10 @@
     BOOL isNightMode;
     
     IBOutlet UITextView *articleView;
-    UISlider *slider;
 }
 
 - (id)initWithIndexPath:(NSIndexPath *)indexPath;
 - (void)refresh;
-- (void)brightnessSlider:(id)sender;
-- (void)sliderDismiss:(id)sender;
-- (void)sliderAction:(id)sender;
 - (void)toggleNightMode;
 - (void)share:(id)sender;
 - (void)gallery:(id)sender;

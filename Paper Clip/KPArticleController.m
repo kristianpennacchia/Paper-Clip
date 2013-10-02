@@ -40,10 +40,6 @@
     // Do any additional setup after loading the view from its nib.
     
     // Add buttons to the navigation bar
-    UIBarButtonItem *brightnessButton = [[UIBarButtonItem alloc] initWithTitle:@"BR"
-                                                                        style:UIBarButtonItemStylePlain
-                                                                        target:self
-                                                                        action:@selector(brightnessSlider:)];
     UIBarButtonItem *nightModeButton = [[UIBarButtonItem alloc] initWithTitle:@"NM"
                                                                         style:UIBarButtonItemStylePlain
                                                                        target:self
@@ -57,8 +53,7 @@
                                                                                  action:@selector(share:)];
     NSArray *buttonsArray = [[NSArray alloc] initWithObjects:shareButton,
                                                             galleryButton,
-                                                            nightModeButton,
-                                                            brightnessButton, nil];
+                                                            nightModeButton, nil];
     [self.navigationItem setRightBarButtonItems:buttonsArray];
     
     // Set the default properties
@@ -107,43 +102,6 @@
     }
     
     articleView.text = mutableString;
-}
-
-- (void)brightnessSlider:(id)sender
-{
-    int x = (self.view.bounds.size.width / 2) - (slider.bounds.size.width / 2);
-    int y = 10;
-    int w = 150;
-    int h = 35;
-    slider = [[UISlider alloc] initWithFrame:CGRectMake(x, y, w, h)];
-    [slider addTarget:self action:@selector(sliderAction:) forControlEvents:UIControlEventValueChanged];
-    
-    int min = 0.0;
-    int max = 1.0;
-    [slider setMinimumValue:min];
-    [slider setMaximumValue:max];
-    slider.value = [[UIScreen mainScreen] brightness];
-    slider.backgroundColor = [UIColor lightGrayColor];
-    
-    slider.continuous = YES;
-    
-    // Add a gesture reognizer to the article controller view and navbar
-    // that detects a tap. When a tap is detected, remove the slider view.
-    UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self
-                                                                                 action:@selector(sliderDismiss:)];
-    [self.view addSubview:slider];
-    [self.view addGestureRecognizer:recognizer];
-}
-
-- (void)sliderDismiss:(id)sender
-{
-    [slider removeFromSuperview];
-    [self.view removeGestureRecognizer:sender];
-}
-
-- (void)sliderAction:(id)sender
-{
-    [[UIScreen mainScreen] setBrightness:slider.value];
 }
 
 - (void)toggleNightMode
