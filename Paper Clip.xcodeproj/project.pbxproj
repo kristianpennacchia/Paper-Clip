@@ -27,6 +27,7 @@
 		1755807917FAA2150056B273 /* KPAddRSSController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1755807717FAA2150056B273 /* KPAddRSSController.m */; };
 		1755807A17FAA2150056B273 /* KPAddRSSController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1755807817FAA2150056B273 /* KPAddRSSController.xib */; };
 		1783932417B4A7A300A9393D /* KPArticleRepository.m in Sources */ = {isa = PBXBuildFile; fileRef = 1783932317B4A7A300A9393D /* KPArticleRepository.m */; };
+		17A7DA8917FBCE1B00036C64 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17A7DA8817FBCE1B00036C64 /* MobileCoreServices.framework */; };
 		17B5D3C017B7D25A004D55E6 /* KPTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B5D3BE17B7D25A004D55E6 /* KPTableViewController.m */; };
 		17B5D3C117B7D25A004D55E6 /* KPTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 17B5D3BF17B7D25A004D55E6 /* KPTableViewController.xib */; };
 /* End PBXBuildFile section */
@@ -63,6 +64,7 @@
 		1755807817FAA2150056B273 /* KPAddRSSController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KPAddRSSController.xib; sourceTree = "<group>"; };
 		1783932017B4A6AE00A9393D /* KPArticleRepository.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KPArticleRepository.h; sourceTree = "<group>"; };
 		1783932317B4A7A300A9393D /* KPArticleRepository.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPArticleRepository.m; sourceTree = "<group>"; };
+		17A7DA8817FBCE1B00036C64 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		17B5D3BD17B7D259004D55E6 /* KPTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPTableViewController.h; sourceTree = "<group>"; };
 		17B5D3BE17B7D25A004D55E6 /* KPTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPTableViewController.m; sourceTree = "<group>"; };
 		17B5D3BF17B7D25A004D55E6 /* KPTableViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = KPTableViewController.xib; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17A7DA8917FBCE1B00036C64 /* MobileCoreServices.framework in Frameworks */,
 				1741A22E17B8D06D0072C84C /* SystemConfiguration.framework in Frameworks */,
 				17538C4517B48F8F00A4CEBD /* UIKit.framework in Frameworks */,
 				17538C4717B48F8F00A4CEBD /* Foundation.framework in Frameworks */,
@@ -103,6 +106,7 @@
 		17538C4317B48F8F00A4CEBD /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				17A7DA8817FBCE1B00036C64 /* MobileCoreServices.framework */,
 				17538C4417B48F8F00A4CEBD /* UIKit.framework */,
 				17538C4617B48F8F00A4CEBD /* Foundation.framework */,
 				17538C4817B48F8F00A4CEBD /* CoreGraphics.framework */,

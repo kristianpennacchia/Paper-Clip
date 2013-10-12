@@ -35,6 +35,7 @@
         
         self.content = [self.dict valueForKey:@"content"];
         self.completeText = @"";
+        self.completeHTML = @"";
         
         // Seperate date, time and timezone
         // Date example: Sat, 10 Aug 2013 04:03:04 -0700

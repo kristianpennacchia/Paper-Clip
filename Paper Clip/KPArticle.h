@@ -15,6 +15,7 @@
 @property (nonatomic, strong) NSString *previewText;    // Called contentSnippet in API responseData
 @property (nonatomic, strong) NSString *content;    // A larger preview of the article
 @property (nonatomic, strong) NSString *completeText;   // Have to fetch the whole article manually
+@property (nonatomic, strong) NSString *completeHTML;   // The complete article in HTML (not stripped)
 @property (nonatomic, strong) NSString *author; // Author of the article
 @property (nonatomic, strong) NSString *date;   // Called publishedDate in API responseData
 @property (nonatomic, strong) NSString *time;   // The time the article was published

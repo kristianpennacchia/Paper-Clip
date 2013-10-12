@@ -134,7 +134,7 @@
                                        // Add content to correct 'article' based on indexPath.row
                                        KPAppDelegate *delegate = (KPAppDelegate *)[[UIApplication sharedApplication] delegate];
                                        [[delegate.articles objectAtIndex:index]
-                                        setCompleteText:[JSONArticle objectForKey:@"content"]];
+                                        setCompleteHTML:[JSONArticle objectForKey:@"content"]];
                                        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
                                        [activityView stopAnimating];
                                        
